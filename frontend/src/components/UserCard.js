@@ -31,10 +31,14 @@ const UserCard = ({ index, user1,onDeleteUser  }) => {
   useEffect(()=>{
     setUser(user1)
   },[])
-  const handleDelete = () => {
+  const handleDelete = (e) => {
     const userId=user._id
+    
+    const main=$(e.currentTarget).attr('mainid')
+    console.log(main);
 
-    onDeleteUser(userId);
+    $('.mainUserCard').length > 1 ? $('#'+main).remove() : window.location.reload()
+    // onDeleteUser(userId);
   };
   return (
     <div id={"userDetails_" + index} className="mainUserCard">
@@ -135,7 +139,7 @@ const UserCard = ({ index, user1,onDeleteUser  }) => {
                 cursor: "pointer",
               }}
             >
-              <DeleteOutlined onClick={handleDelete} 
+              <DeleteOutlined  mainid={"userDetails_"+index} onClick={handleDelete} 
               
               className="editDeleteShape" />
             </div>
