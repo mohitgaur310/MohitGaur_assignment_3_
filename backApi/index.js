@@ -35,24 +35,25 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-// delete api
-app.delete('/user/:id', async (req, res) => {
-  const userId = req.params.id;
+// delete API
+// i'm commenting this piece of code because now I'm not deleting data for db just remove it from HTML 
+// app.delete('/user/:id', async (req, res) => {
+//   const userId = req.params.id;
 
-  try {
+//   try {
 
-    const deletedUser = await UserModel.findByIdAndRemove(userId);
+//     const deletedUser = await UserModel.findByIdAndRemove(userId);
 
-    if (!deletedUser) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+//     if (!deletedUser) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
 
-    res.json({ message: 'User deleted successfully', deletedUser });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
+//     res.json({ message: 'User deleted successfully', deletedUser });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// });
 
 
 app.put('/users/:id', async (req, res) => {
