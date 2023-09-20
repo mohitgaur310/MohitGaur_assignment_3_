@@ -33,7 +33,8 @@ const UserCard = ({ index, user1,onDeleteUser  }) => {
   },[])
   const handleDelete = (e) => {
     const userId=user._id
-    
+    // i have use lifting the state up here  to  remove data from backends but now im using jQuerry to just remove data form html 
+    // and as the whole users get delete then it reloads the component.
     const main=$(e.currentTarget).attr('mainid')
     console.log(main);
 
